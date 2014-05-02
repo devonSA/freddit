@@ -1,9 +1,13 @@
 <h1> POSTS </h1>
+<div class="list-group">
 <% @posts.each do |post| %>
-  <%= post.url %>
+  <%= link_to post.url, post.url, class: "list-group-item" %>
 <% end %>
-<%= form_for Post.new do |f| %>
-  <%= f.label :url, "Website URL" %>
-  <%= f.text_field :url %>
-  <%= f.submit %>
+</div>
+<%= form_for Post.new, role: "form" do |f| %>
+  <div class="form-group">
+    <%= f.label :url, "Website URL" %>
+    <%= f.text_field :url, class: "form-control" %>
+  </div>
+  <%= f.submit "Submit that joint", class: "btn btn-primary" %>
 <% end %>
