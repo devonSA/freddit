@@ -2,3 +2,8 @@
 <% @posts.each do |post| %>
   <%= post.url %>
 <% end %>
+<%= form_for Post.new do |f| %>
+  <%= f.label :url, "Website URL" %>
+  <%= f.text_field :url %>
+  <%= f.submit %>
+<% end %>
