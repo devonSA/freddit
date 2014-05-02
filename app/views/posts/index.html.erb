@@ -1,7 +1,12 @@
 <h1> POSTS </h1>
 <div class="list-group">
 <% @posts.each do |post| %>
-  <%= link_to post.url, post.url, class: "list-group-item" %>
+  <div class="list-group-item">
+    <%= link_to post.url, post.url %>
+    <% downvotes = post.votes.where(polarity: false) %>
+    Upvotes: <%= post.upvotes_count %>
+    Downvotes: <%= post.downvotes_count %>
+  </div>
 <% end %>
 </div>
 <%= form_for Post.new, role: "form" do |f| %>
