@@ -1,7 +1,8 @@
-class UsersController < ApplicationController
+class UsersController < Devise::RegistrationsController
   def new
-    @user = User.new
+    super
   end
+
   def create
     @user = User.new(user_params)
     if @user.save
